@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CONTACT } from '../constants';
 import { motion } from 'framer-motion';
-import FeedbackForm from './FeedbackForm'; // Import the new FeedbackForm component
+import FeedBackForm from './FeedBackForm'; // Import the new FeedbackForm component
 import { FaFacebook } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa';
 import { FaSquareXTwitter } from 'react-icons/fa6';
@@ -97,7 +97,7 @@ const Contact = () => {
                 </div>
 
                 {/* Feedback Form */}
-                <FeedbackForm />
+                <FeedBackForm />
             </div>
             <p className='mt-10 text-center text-xs lg:text-base'>© 2024 Pritam Roy. All rights reserved.</p>
         </div>

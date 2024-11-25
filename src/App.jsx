@@ -3,7 +3,7 @@ import Hero from './components/Hero'
 import About from "./components/Trending"
 import Platform from './components/Platform'
 import Contact from './components/Contact'
-import Test from "./components/Test"
+
 
 const App = () => {
   return (
