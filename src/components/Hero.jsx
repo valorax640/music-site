@@ -41,7 +41,7 @@ const Hero = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            className="my-2 max-w-xl py-6 font-light tracking-tighter"
+                            className="my-2 max-w-xl py-6 font-light tracking-tighter text-justify"
                         >
                             {HERO_CONTENT}
                         </motion.p>
