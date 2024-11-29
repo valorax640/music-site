@@ -1,7 +1,11 @@
 import { HERO_CONTENT } from "../constants";
-import profilePic from "../assets/kevinRushProfile.png";
+import profilePic from "../assets/DSC_9496.jpg";
 import { motion } from "framer-motion";
-import { FaWhatsapp } from "react-icons/fa"; // Import WhatsApp icon
+import { MdBookmarkBorder } from "react-icons/md"; // Import WhatsApp icon
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../constants/firebase";
+
 
 const Hero = () => {
     const container = (delay) => ({
@@ -13,9 +17,26 @@ const Hero = () => {
         },
     });
 
+    const [links, setLinks] = useState({});
+
+    useEffect(() => {
+        const fetchLinks = async () => {
+            const querySnapshot = await getDocs(collection(db, "prebook"));
+            const linksData = querySnapshot.docs.reduce((acc, doc) => {
+                acc[doc.id] = doc.data().url; // Create an object with ids as keys
+                return acc;
+            }, {});
+            setLinks(linksData);
+            // console.log(links);
+
+        };
+
+        fetchLinks();
+    }, []);
+
     return (
         <div className="pb-4 lg-mb-35">
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-evenly">
                 <div className="w-full lg:w-1/2">
                     <div className="flex flex-col items-center lg:items-start">
                         <motion.h1
@@ -23,9 +44,9 @@ const Hero = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            className="pb-16 text-5xl font-thin tracking-tight lg:mt-16 lg:text-8xl "
+                            className="pb-8 text-5xl font-thin tracking-tight lg:mt-16 lg:text-8xl "
                         >
-                            Kusal Baraik
+                            Nniiss
                         </motion.h1>
                         <motion.span
                             variants={container(0.3)}
@@ -50,21 +71,29 @@ const Hero = () => {
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
-                            className="my-4"
-                        >
-                            <button className="flex items-center gap-2 px-6 py-2 border-2 border-white rounded-full text-white hover:bg-white hover:text-black transition-all duration-300">
-                                Join The Community <FaWhatsapp size={20} />
-                            </button>
+                            className="mb-10">
+                            {links.prebook && (
+                                <a
+                                    href={links.prebook}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <button className="flex items-center gap-2 px-6 py-2 border-2 border-white rounded-full text-white hover:bg-white hover:text-black transition-all duration-300">
+                                        Pre Book <MdBookmarkBorder size={20} />
+                                    </button>
+                                </a>
+                            )}
                         </motion.div>
                     </div>
                 </div>
-                <div className="w-full lg:w-1/2 lg:p-8">
+                <div className="w-full lg:w-1/3 lg:p-8">
                     <div className="flex justify-center">
                         <motion.img
                             initial={{ x: 100, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 1, delay: 1 }}
+                            className="rounded-xl"
                             src={profilePic}
                             alt="profilePic"
                         />

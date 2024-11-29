@@ -1,6 +1,7 @@
 import { FaYoutube } from "react-icons/fa";
 import { FaSpotify } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
+import { TbActivityHeartbeat } from "react-icons/tb";
 import { motion } from 'framer-motion';
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
@@ -38,7 +39,7 @@ const Platform = () => {
         fetchLinks();
     }, []);
     return (
-        <div className=' pb-24'>
+        <div className='pb-10'>
             <motion.h1
                 whileInView={{ y: 0, opacity: 1 }}
                 initial={{ y: -100, opacity: 0 }}
@@ -75,7 +76,7 @@ const Platform = () => {
                     className='rounded-xl border-4 border-neutral-800 p-4'>
                     {links.spotify && (
                         <a
-                            href={links.youtube}
+                            href={links.spotify}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -91,15 +92,33 @@ const Platform = () => {
                     className='rounded-xl border-4 border-neutral-800 p-4'>
                     {links.apple_music && (
                         <a
-                            href={links.youtube}
+                            href={links.apple_music}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <FaApple className='text-7xl text-white-400' />
                         </a>
                     )}
-                    
+
                 </motion.div>
+
+            </motion.div>
+            <motion.div
+                whileInView={{ y: 0, opacity: 1 }}
+                initial={{ y: 100, opacity: 0 }}
+                transition={{ duration: 1 }}
+                className="mt-20 flex justify-center">
+                {links.beat && (
+                    <a
+                        href={links.beat}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <button className="flex items-center gap-2 px-6 py-2 border-2 border-white rounded-full text-white hover:bg-white hover:text-black transition-all duration-300">
+                            Vibe to my Beats <TbActivityHeartbeat size={20} />
+                        </button>
+                    </a>
+                )}
 
             </motion.div>
         </div>

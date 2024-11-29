@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "../assets/kevinRushLogo.png"
+import logo from "../assets/Picsart_24-11-25_21-09-05-066.jpg"
 import { FaFacebook } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa';
 import { FaSquareXTwitter } from 'react-icons/fa6';
@@ -28,7 +28,7 @@ const Navbar = () => {
     <div>
       <nav className=' mb-20 flex items-center justify-between py-6'>
         <div className='flex flex-shrink-0 items-center'>
-          <img className='mx-2 w-10' src={logo} alt='' />
+          <img className='mx-2 w-10' src={logo} alt=''/>
         </div>
         <div className='m-8 flex items-center justify-center gap-4 text-2xl'>
           

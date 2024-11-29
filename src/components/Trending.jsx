@@ -111,7 +111,7 @@ const MusicPlayer = () => {
         whileInView={{ y: 0, opacity: 1 }}
         initial={{ y: 100, opacity: 0 }}
         transition={{ duration: 1 }}
-        className="w-full max-w-[320px] mx-auto my-10 bg-white bg-opacity-30 backdrop-blur-xl rounded-xl shadow-xl sm:h-[500px] h-[450px]"
+        className="w-full max-w-[320px] mx-auto my-20 bg-white bg-opacity-30 backdrop-blur-xl rounded-xl shadow-xl sm:h-[500px] h-[450px]"
       >
         {music.length > 0 && (
           <>

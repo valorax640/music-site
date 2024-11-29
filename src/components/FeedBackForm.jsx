@@ -1,4 +1,5 @@
 import { AiOutlineUser, AiOutlineMail, AiOutlineMessage, AiOutlinePhone, AiOutlineDown } from 'react-icons/ai';
+import { RiSendPlaneFill } from "react-icons/ri";;
 import { motion } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
@@ -179,9 +180,9 @@ const FeedbackForm = () => {
               {/* Submit Button */}
               <button
                   type="submit"
-                  className="w-full bg-white text-gray-900 font-medium rounded-md py-2 sm:py-3 hover:bg-gray-200 text-sm sm:text-base"
+                  className="flex justify-center gap-2 items-center w-full bg-white text-gray-900 font-medium rounded-md py-2 sm:py-3 hover:bg-gray-200 text-sm sm:text-base"
               >
-                  Send
+                  Send <RiSendPlaneFill size={15}/>
               </button>
           </form>
 
