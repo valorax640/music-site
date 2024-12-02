@@ -50,10 +50,6 @@ const Contact = () => {
                         </p>
 
                         <p className='my-2'>
-                            {CONTACT.phoneNo}
-                        </p>
-
-                        <p className='my-2'>
                             {CONTACT.email}
                         </p>
                     </motion.div>

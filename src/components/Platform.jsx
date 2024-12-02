@@ -1,7 +1,7 @@
 import { FaYoutube } from "react-icons/fa";
 import { FaSpotify } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
-import { TbActivityHeartbeat } from "react-icons/tb";
+import { MdBookmarkBorder } from "react-icons/md";
 import { motion } from 'framer-motion';
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
@@ -108,14 +108,14 @@ const Platform = () => {
                 initial={{ y: 100, opacity: 0 }}
                 transition={{ duration: 1 }}
                 className="mt-20 flex justify-center">
-                {links.beat && (
+                {links.prebook && (
                     <a
-                        href={links.beat}
+                        
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         <button className="flex items-center gap-2 px-6 py-2 border-2 border-white rounded-full text-white hover:bg-white hover:text-black transition-all duration-300">
-                            Vibe to my Beats <TbActivityHeartbeat size={20} />
+                            Pre Book <MdBookmarkBorder size={20} />
                         </button>
                     </a>
                 )}

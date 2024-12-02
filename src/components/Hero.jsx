@@ -1,7 +1,7 @@
 import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/DSC_9496.jpg";
 import { motion } from "framer-motion";
-import { MdBookmarkBorder } from "react-icons/md"; // Import WhatsApp icon
+import { TbActivityHeartbeat } from "react-icons/tb"; // Import WhatsApp icon
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../constants/firebase";
@@ -21,7 +21,7 @@ const Hero = () => {
 
     useEffect(() => {
         const fetchLinks = async () => {
-            const querySnapshot = await getDocs(collection(db, "prebook"));
+            const querySnapshot = await getDocs(collection(db, "beat"));
             const linksData = querySnapshot.docs.reduce((acc, doc) => {
                 acc[doc.id] = doc.data().url; // Create an object with ids as keys
                 return acc;
@@ -72,14 +72,14 @@ const Hero = () => {
                             whileInView="visible"
                             viewport={{ once: true }}
                             className="mb-10">
-                            {links.prebook && (
+                            {links.beat && (
                                 <a
-                                    href={links.prebook}
+                                    
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <button className="flex items-center gap-2 px-6 py-2 border-2 border-white rounded-full text-white hover:bg-white hover:text-black transition-all duration-300">
-                                        Pre Book <MdBookmarkBorder size={20} />
+                                        Vibe to my Beats <TbActivityHeartbeat size={20} />
                                     </button>
                                 </a>
                             )}
